@@ -19,21 +19,51 @@ public class PersonalDataPage extends BasePage {
     @FindBy(xpath = "//input[@onclick='validatePersonalInfo(event)']")
     private WebElement nextButton;
 
+    @FindBy(xpath = "//span[@id='emailErrM']")
+    private WebElement emailErrorMessage;
+
+    //private String emailError="Ошибка в поле Email";
+
+
     public PersonalDataPage(WebDriver driver) {
         super(driver);
     }
-    public void inputName (String name) {
+
+    public void inputName(String name) {
+
         nameEditBox.sendKeys(name);
     }
-    public void inputEmail (String email) {
+
+    public boolean isEmailErrorVisible() {
+        return emailErrorMessage.isDisplayed();
+
+    }
+
+    public String getEmailErrorText() {   // актуальный результат
+        return emailErrorMessage.getText();
+
+    }
+
+
+    public void inputEmail(String email) {
         emailEditBox.sendKeys(email);
     }
-    public void inputPhone (String phone) {
+
+    public void inputPhone(String phone) {
         phoneEditBox.sendKeys(phone);
     }
 
-    public void clickNextButton () {
-    nextButton.click();
+
+    public void clickNextButton() {
+        nextButton.click();
     }
 
+
+    public WebElement getEmailErrorMessage() {
+        return emailErrorMessage;
+    }
+
+//    public String getEmailError() {
+//        return emailError;
+//    }
 }

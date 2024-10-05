@@ -6,20 +6,23 @@ import org.openqa.selenium.support.FindBy;
 
 public class TariffPlanPage extends BasePage {
 
+    @FindBy(xpath = "//h3[contains(text(),'Выбери план')]")
+    private WebElement choosePlanTab;
+
 
     public TariffPlanPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(xpath = "//h3[contains(text(),'Выбери план')]")
-    private WebElement choosePlanTab;
-
 
     public boolean isTariffPlanDisplayed () {
+
 //        WebElement webElement = driver.findElement(By.xpath("//h3[contains(text(),'Выбери план')]"));
-//        return webElement.isDisplayed();
+//
+//       return webElement.isDisplayed(); - detailed version
 
         return choosePlanTab.isDisplayed();
+
     }
 
     
